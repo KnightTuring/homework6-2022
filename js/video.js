@@ -52,11 +52,13 @@ document.querySelector("#mute").addEventListener('click', function(e) {
 		video.volume = 0
 		volumeSlider.value = 0
 		volumeSlider.disabled = true
+		document.getElementById("volume").innerHTML = "0%"
 	} else {
 		e.target.innerHTML = "Mute"
 		video.volume = oldVolume
 		volumeSlider.value = oldVolume * 100
 		volumeSlider.disabled = false
+		document.getElementById("volume").innerHTML = volumeSlider.value + "%"
 	}
 })
 
