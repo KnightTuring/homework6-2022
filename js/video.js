@@ -7,12 +7,13 @@ window.addEventListener("load", function() {
 	video.autoplay = false
 	video.loop = false
 	video.load()
-	document.getElementById("volume").innerHTML = '100%'
+	document.getElementById("volume").innerHTML = ''
 });
 
 document.querySelector("#play").addEventListener('click', function() {
 	video.play()
 	volumeSlider.value = video.volume * 100
+	document.getElementById("volume").innerHTML = volumeSlider.value + "%"
 })
 
 document.querySelector("#pause").addEventListener('click', function() {
@@ -50,15 +51,14 @@ document.querySelector("#mute").addEventListener('click', function(e) {
 		e.target.innerHTML = "Unmute"
 		oldVolume = video.volume
 		video.volume = 0
-		volumeSlider.value = 0
 		volumeSlider.disabled = true
-		document.getElementById("volume").innerHTML = "0%"
+		// document.getElementById("volume").innerHTML = "0%"
 	} else {
 		e.target.innerHTML = "Mute"
 		video.volume = oldVolume
 		volumeSlider.value = oldVolume * 100
 		volumeSlider.disabled = false
-		document.getElementById("volume").innerHTML = volumeSlider.value + "%"
+		// document.getElementById("volume").innerHTML = volumeSlider.value + "%"
 	}
 })
 
