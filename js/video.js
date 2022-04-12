@@ -49,14 +49,12 @@ document.querySelector("#skip").addEventListener('click', function() {
 document.querySelector("#mute").addEventListener('click', function(e) {
 	if(e.target.innerHTML == "Mute") {
 		e.target.innerHTML = "Unmute"
-		oldVolume = video.volume
-		video.volume = 0
+		video.muted = true
 		volumeSlider.disabled = true
 		// document.getElementById("volume").innerHTML = "0%"
 	} else {
 		e.target.innerHTML = "Mute"
-		video.volume = oldVolume
-		volumeSlider.value = oldVolume * 100
+		video.muted = false
 		volumeSlider.disabled = false
 		// document.getElementById("volume").innerHTML = volumeSlider.value + "%"
 	}
